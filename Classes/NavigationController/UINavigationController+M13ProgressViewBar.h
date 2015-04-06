@@ -32,6 +32,7 @@
 - (void)setIndeterminate:(BOOL)indeterminate;
 /**Fill the progress bar completely and remove it from display.*/
 - (void)finishProgress;
+- (void)finishProgressWithCompletion:(void(^)())completed;
 /**Remove the progress bar from the display.*/
 - (void)cancelProgress;
 /**Wether or not the progress bar is showing.*/

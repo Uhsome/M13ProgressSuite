@@ -89,6 +89,11 @@ static char secondaryColorKey;
 
 - (void)finishProgress
 {
+    [self finishProgressWithCompletion:nil];
+}
+
+- (void)finishProgressWithCompletion:(void(^)())completed
+{
     UIView *progressView = [self getProgressView];
 
     if (progressView) {
@@ -105,6 +110,9 @@ static char secondaryColorKey;
                     progressView.alpha = 1;
                     [self setTitle:nil];
                     [self setIsShowingProgressBar:NO];
+                    if (completed) {
+                        completed();
+                    }
                 }];
             }];
         });
